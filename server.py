@@ -1,8 +1,8 @@
 import numpy as np
 from flask import Flask, request, jsonify, render_template
 import pickle
-from keras.models import load_model
-from keras.preprocessing.sequence import pad_sequences
+from tensorflow.keras.models import load_model
+from tensorflow.keras.preprocessing.sequence import pad_sequences
 
 app = Flask(__name__)
 
