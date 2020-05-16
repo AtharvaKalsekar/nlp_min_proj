@@ -3,21 +3,29 @@
 <head>
   <meta charset="UTF-8">
   <title>Server</title>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
 </head>
 
 <body>
- <div class="login">
-	<h1>News articl classification</h1>
-
-    <form action="{{ url_for('predict2')}}"method="post">
-        <label for="article"> Enter your article here : </label>
-    	<input type="text" name="article" id="article" required="required" />
-        <button type="submit" class="btn btn-primary btn-block btn-large">Predict category</button>
-    </form>
+	
+    <div class="container">
+      <h1>News article classification</h1>
+      <form action="{{ url_for('predict2')}}" method="post">
+          <label for="article"> Enter your article here : </label>
+          <input type="text" name="article" id="article" required="required" />
+          <button type="submit" class="btn btn-primary btn-block btn-large">Predict category</button>
+      </form>
+    </div>
 
    <br>
    <br>
-   {{ prediction_text }}
+   <span> Query :</span>
+   <br>
+   <p> {{article}} </p>
+   <br>
+   <br>
+   <span> Category : {{ prediction_text }}</span>
+   
 
  </div>
 </body>
