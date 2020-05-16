@@ -1,24 +1,88 @@
 <!DOCTYPE html>
-<html >
+<html>
+
 <head>
   <meta charset="UTF-8">
   <title>Server</title>
+  <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css"
+    integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous" />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
 </head>
+<style>
+  body {
+    background-image: url('images/plaid.jpg');
+    /* font-family: 'Playfair Display', serif; */
+    font-family: 'Roboto', sans-serif;
+  }
+
+  .navbar {
+    /* background-color: #eee; */
+    background: rgba(255, 255, 255, 0.75);
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
+  }
+
+  .navbar-brand {
+    font-size: 40px;
+    color: black;
+  }
+
+  .main {
+    width: 80%;
+    margin: 0 auto;
+    padding: 40px;
+  }
+
+  .card {
+    background: rgba(255, 255, 255, 0.75);
+    border-radius: 2px;
+    margin: 0 auto;
+    margin-top: 40px;
+    border-radius: 15px;
+
+  }
+
+  .card-3 {
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.19), 0 6px 6px rgba(0, 0, 0, 0.23);
+  }
+
+  .btn {
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.19), 0 6px 6px rgba(0, 0, 0, 0.23);
+    font-size: 25px;
+    background-color: #88b2bf;
+    border: none;
+  }
+
+  .btn:hover {
+    box-shadow: none;
+    background-color: #88b2bf;
+  }
+
+  .label-text {
+    font-size: 25px;
+  }
+</style>
 
 <body>
- <div class="login">
-	<h1>News articl classification</h1>
-
-    <form action="{{ url_for('predict2')}}"method="post">
-        <label for="article"> Enter your article here : </label>
-    	<input type="text" name="article" id="article" required="required" />
-        <button type="submit" class="btn btn-primary btn-block btn-large">Predict category</button>
+  <nav class="navbar">
+    <span class="navbar-brand"><i class="far fa-newspaper"></i>&nbsp;News article classification</span>
+  </nav>
+  <div class="main card card-3">
+    <form action="{{ url_for('predict2')}}" method="post" class="form-group">
+      <label for="article" class="label-text"> Enter your article here </label>
+      <textarea class="form-control" name="article" id="article" rows="15" required="required"></textarea>
+      <br>
+      <button type="submit" class="btn btn-primary btn-block btn-large">Predict category</button>
     </form>
+    <hr>
+    <label class="label-text"> Predicted Class </label>
 
-   <br>
-   <br>
-   {{ prediction_text }}
+    <br>
+    {{ prediction_text }}
 
- </div>
+  </div>
 </body>
+
 </html>
